@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-app-deployment
+  namespace: node-app
+  labels:
+    app: node-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: node-app
+  template:
+    metadata:
+      name: node-pod
+      namespace: node-app
+      labels:
+        app: node-app
+    spec:
+      containers:
+        - name: node-container
+          image: public.ecr.aws/u3u6l5m8/my-nodeapp
+          ports:
+            - containerPort: 8000
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-app-service
+  namespace: node-app
+spec:
+  type: NodePort
+  selector:
+    app: node-app
+  ports:
+    - port: 80
+      targetPort: 8000
+      nodePort: 31000

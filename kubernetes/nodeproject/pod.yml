@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: node-pod
+  namespace: node-app
+
+spec:
+  containers:
+    - name: node-container
+      image: public.ecr.aws/u3u6l5m8/my-nodeapp
+      ports:
+        - containerPort: 8000
