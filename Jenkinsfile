@@ -20,7 +20,7 @@ pipeline {
         stage('Code clon from Github') {
             steps {
                 git url: "https://github.com/Omsonawale/node-todo-cicd.git", branch: "master" 
-                echo 'Code clone completed..................*'
+                echo 'Code clone completed..................!*'
             }
         }
         stage('SonarQube Quality Analysis') {
