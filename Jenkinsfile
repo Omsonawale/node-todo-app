@@ -13,7 +13,7 @@ pipeline {
         stage('Clean Workspace'){
             steps{
                 cleanWs()
-                echo 'Clean Workspace completed..................*'
+                echo 'Clean Workspace completed..................********'
             }
         }
         
