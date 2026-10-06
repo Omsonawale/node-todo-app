@@ -104,7 +104,7 @@ pipeline {
         stage('creating cointainer') {
             steps {
                 sh 'docker run -d -p 8000:8000 --name myapp-cointainer  my-nodeapp:latest '
-                echo 'Cointainer created.....................**'
+                echo 'Cointainer created.....................!**'
             }
         }
     }
